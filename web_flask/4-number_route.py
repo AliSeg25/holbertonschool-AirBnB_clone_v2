@@ -34,7 +34,7 @@ def printpython(text):
 @app.route('/number/<int:n>', strict_slashes=False)
 def print_n(n):
     """print n """
-    return "{} is a un number".format(n)
+    return "{} is a number".format(n)
 
 
 if __name__ == '__main__':
