@@ -11,13 +11,16 @@ def print_hello_hbnb():
     """ return sur la page "Hello HBNB!" """
     return "Hello HBNB!"
 
+
 @app.route('/hbnb', strict_slashes=False)
 def print_hbnb():
     """ return sur la page "HBNB" """
     return "HBNB"
 
+
 @app.route('/c/<text>')
 def printctext(text):
+    """ return c url"""
     return "c {}".format(text.replace('_', ' ')).capitalize()
 
 
