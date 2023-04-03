@@ -18,7 +18,7 @@ def print_hbnb():
 
 @app.route('/c/<text>')
 def printctext(text):
-    return "c {}".format(text.replace('_', ' '))
+    return "c {}".format(text.replace('_', ' ')).capitalize()
 
 
 if __name__ == '__main__':
