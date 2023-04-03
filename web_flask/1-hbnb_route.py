@@ -12,7 +12,7 @@ def hello_hbnb():
     return "Hello HBNB!"
 
 @app.route('/hbnb', strict_slashes=False)
-def hbnb():
+def print_hbnb():
     """ return sur la page "HBNB" """
     return "HBNB"
 
