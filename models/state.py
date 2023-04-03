@@ -1,16 +1,17 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
-"""
+
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
-from models.city import City
+#from models.city import City
+
 """
 from models import storage
 from models.base_model import BaseModel
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
-
+"""
 
 class State(BaseModel, Base):
 
