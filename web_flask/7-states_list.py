@@ -1,23 +1,22 @@
 #!/usr/bin/python3
 """Flask web application"""
 from flask import Flask, render_template
-import sys
-sys.path.append('/home/ali/holbertonschool-AirBnB_clone_v2')
 from models import storage
 from models.state import State
+
 app = Flask(__name__)
 
 
 @app.route('/states', strict_slashes=False)
-def récuperer_donnée():
-    # Utiliser le storage pour récuperer les données
-    state_dict = storage.all(State).values()
-    return render_template('7-states_list.html', state_dict=state_dict)
+def states_list():
+    """Display a list of all State objects sorted by name"""
+    state_list = storage.all(State).order_by(State.name)
+    return render_template('7-states_list.html', state_list=state_list)
 
 
 @app.teardown_appcontext
-def storage_close(db):
-    # fermer la session
+def close_storage(error):
+    """Close the current SQLAlchemy session"""
     storage.close()
 
 if __name__ == "__main__":
