@@ -7,15 +7,15 @@ app = Flask(__name__)
 
 
 @app.route('/cities_by_states', strict_slashes=False)
-def list_state():
-    #Displays a list of cities in their states in a website
+def récuperer_donnée():
+    # Utiliser le storage pour récuperer les données
     state_list = storage.all(State).values()
     return render_template('8-cities_by_states.html', state_list=state_list)
 
 
 @app.teardown_appcontext
 def close_storage(db):
-    #Closes the current SQLAlchemy session
+    # fermer la session
     storage.close()
 
 if __name__ == "__main__":
