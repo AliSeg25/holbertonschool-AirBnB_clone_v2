@@ -14,7 +14,7 @@ def récuperer_donnée():
 
 
 @app.teardown_appcontext
-def close_storage(db):
+def storage_close(db):
     # fermer la session
     storage.close()
 
