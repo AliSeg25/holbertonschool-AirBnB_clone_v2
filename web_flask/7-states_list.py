@@ -12,7 +12,7 @@ app = Flask(__name__)
 def récuperer_donnée():
     # Utiliser le storage pour récuperer les données
     state_dict = storage.all(State).values()
-    return render_template('7-states_list.html', state_list=state_list)
+    return render_template('7-states_list.html', state_dict=state_dict)
 
 
 @app.teardown_appcontext
