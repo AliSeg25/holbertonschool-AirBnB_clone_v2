@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 
 @app.route('/states', strict_slashes=False)
-def récuperer_donnée():
+def récuperer_donnee():
     # Utiliser le storage pour récuperer les données
     state_dict = storage.all(State).values()
     return render_template('7-states_list.html', state_dict=state_dict)
