@@ -8,13 +8,13 @@ from models.state import State
 app = Flask(__name__)
 
 
+
 @app.route('/states', strict_slashes=False)
 def récuperer_donnée():
     # Utiliser le storage pour récuperer les données
     state_dict = storage.all(State).values()
-    print(state_list)
+    print(state_dict)
     return render_template('8-cities_by_states.html', state_dict=state_dict)
-
 
 @app.teardown_appcontext
 def storage_close(db):
