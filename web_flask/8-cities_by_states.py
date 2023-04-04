@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that starts a Flask web application"""
+"""Flask web application"""
 from flask import Flask, render_template
 from models import storage
 from models.state import State
@@ -10,6 +10,7 @@ app = Flask(__name__)
 def récuperer_donnée():
     # Utiliser le storage pour récuperer les données
     state_list = storage.all(State).values()
+    print(state_list)
     return render_template('8-cities_by_states.html', state_list=state_list)
 
 
