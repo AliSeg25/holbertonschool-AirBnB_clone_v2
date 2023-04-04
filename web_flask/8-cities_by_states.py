@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Flask web application"""
 from flask import Flask, render_template
+import sys
+sys.path.append('/home/ali/holbertonschool-AirBnB_clone_v2')
 from models import storage
 from models.state import State
 app = Flask(__name__)
@@ -9,9 +11,9 @@ app = Flask(__name__)
 @app.route('/states', strict_slashes=False)
 def récuperer_donnée():
     # Utiliser le storage pour récuperer les données
-    state_list = storage.all(State).values()
+    state_dict = storage.all(State).values()
     print(state_list)
-    return render_template('8-cities_by_states.html', state_list=state_list)
+    return render_template('8-cities_by_states.html', state_dict=state_dict)
 
 
 @app.teardown_appcontext
