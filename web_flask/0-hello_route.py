@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module to start a Flask web application """
+""" Module to start a Flask web applicationss """
 
 from flask import Flask
 
