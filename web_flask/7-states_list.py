@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 """Flask web application"""
 from flask import Flask, render_template
+import sys
+sys.path.append('/home/ali/holbertonschool-AirBnB_clone_v2')
 from models import storage
-
+from models.state import State
 app = Flask(__name__)
-app.url_map.strict_slashes = False
+
 
 
 @app.route('/states_list')
