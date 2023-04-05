@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 """ Place Module for HBNB project """
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, Float, Integer, ForeignKey, Table
+from sqlalchemy import Column, String, Float, Integer, ForeignKey, Table, DateTime
 from sqlalchemy.orm import relationship
 from models.review import Review
 from models.amenity import Amenity
 from datetime import datetime
 
-# Metadata = Base.metadata récupère l'objet metadata de la classe Base
 metadata = Base.metadata
-# Crée une table de base de données appelée place_amenity en utilisant cet objet metadata.
+
 place_amenity = Table('place_amenity', metadata,
     Column('place_id', String(60), ForeignKey('places.id'), primary_key=True, nullable=False),
     Column('amenity_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False)
