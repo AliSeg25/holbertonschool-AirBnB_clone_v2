@@ -12,7 +12,9 @@ app = Flask(__name__)
 def récuperer_donnee():
     # Utiliser le storage pour récuperer les données
     states = storage.all(State).values()
-    return render_template('7-states_list.html', states=states)
+    # Trier les états par nom
+    sorted_states = sorted(states, key=lambda state: state.name)
+    return render_template('7-states_list.html', states=sorted_states)
 
 
 @app.teardown_appcontext
