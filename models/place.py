@@ -31,4 +31,4 @@ class Place(BaseModel, Base):
     amenities = relationship('Amenity', secondary='place_amenity', overlaps="place_amenities", viewonly=False)
     id = Column(String(36), primary_key=True)
 
-    city = relationship('City', back_populates='places')
+    city = relationship('City', back_populates='places', overlaps="cities")
