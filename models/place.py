@@ -29,7 +29,7 @@ class Place(BaseModel, Base):
     longitude = Column(Float, nullable=True)
     reviews = relationship('Review', cascade='all, delete', backref='place')
     amenities = relationship('Amenity', secondary='place_amenity', overlaps="place_amenities", viewonly=False)
-    id = Column(String(36), primary_key=True)
+    id = Column(String(36), primary_key=True, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
