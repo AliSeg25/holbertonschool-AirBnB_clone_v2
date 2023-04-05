@@ -15,13 +15,10 @@ place_amenity = Table('place_amenity', metadata,
     Column('amenity_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False)
 )
 
-from sqlalchemy import DateTime
-
-
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'
-    city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
+    city_id = Column(String(36), ForeignKey('cities.id'), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     name = Column(String(128), nullable=False)
     description = Column(String(1024), nullable=True)
@@ -34,7 +31,7 @@ class Place(BaseModel, Base):
     reviews = relationship('Review', cascade='all, delete', backref='place')
     amenities = relationship('Amenity', secondary='place_amenity', overlaps="place_amenities", viewonly=False)
     id = Column(String(36), primary_key=True)
-    created_at = Column(DateTime, nullable=False)
-    updated_at = Column(DateTime, nullable=False)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     city = relationship('City', back_populates='places', overlaps="cities")
