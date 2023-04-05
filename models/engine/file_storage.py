@@ -7,12 +7,11 @@ class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
     __file_path = 'file.json'
     __objects = {}
-    
+
     def all(self, cls=None):
         """
-        Retourne un dictionnaire contenant tous les modèles stockés dans le fichier.
-        Si un argument cls est donné, retourne uniquement les modèles qui correspondent
-        à la classe spécifiée.
+        Retourne un dictionnaire contenant tous
+        les modèles stockés
         """
         if cls is not None:
             objects_by_cls = {}
@@ -22,7 +21,6 @@ class FileStorage:
             return objects_by_cls
         else:
             return FileStorage.__objects
-
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -57,11 +55,7 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        """
-                        La commande classes[val['__class__']](**val) 
-                        crée une instance de classe pour l'objet stocké dans le fichier JSON
-                        """
-                        self.all()[key] = classes[val['__class__']](**val)
+                    self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
 
