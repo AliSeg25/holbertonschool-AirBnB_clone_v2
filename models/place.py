@@ -5,6 +5,7 @@ from sqlalchemy import Column, String, Float, Integer, ForeignKey, Table
 from sqlalchemy.orm import relationship
 from models.review import Review
 from models.amenity import Amenity
+from sqlalchemy import DateTime
 
 # Metadata = Base.metadata récupère l'objet metadata de la classe Base
 metadata = Base.metadata
