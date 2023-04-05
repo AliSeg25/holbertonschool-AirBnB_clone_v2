@@ -2,9 +2,11 @@
 """Flask web application"""
 from flask import Flask, render_template
 import sys
-sys.path.append('/home/ali/holbertonschool-AirBnB_clone_v2')
 from models import storage
 from models.state import State
+
+
+sys.path.append('/home/ali/holbertonschool-AirBnB_clone_v2')
 app = Flask(__name__)
 
 
@@ -21,6 +23,7 @@ def récuperer_donnee():
 def storage_close(db):
     # fermer la session
     storage.close()
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='5000')
