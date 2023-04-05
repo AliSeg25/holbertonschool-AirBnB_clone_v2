@@ -14,6 +14,11 @@ place_amenity = Table('place_amenity', metadata,
     Column('amenity_id', String(60), ForeignKey('amenities.id'), primary_key=True, nullable=False)
 )
 
+from sqlalchemy import DateTime
+
+created_at = Column(DateTime, nullable=False)
+updated_at = Column(DateTime, nullable=False)
+
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'

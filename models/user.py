@@ -5,6 +5,10 @@ from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
 
+from sqlalchemy import DateTime
+
+created_at = Column(DateTime, nullable=False)
+updated_at = Column(DateTime, nullable=False)
 
 class User(BaseModel, Base):
     """indiquer le nom de la table dans laquelle les
