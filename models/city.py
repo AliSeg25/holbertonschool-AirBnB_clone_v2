@@ -12,7 +12,7 @@ class City(BaseModel, Base):
     __tablename__ = 'cities'
     name = Column(String(128), nullable=False)
     state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
-    id = Column(String(60), primary_key=True, nullable=False)
+    id = Column(String(36), primary_key=True, nullable=False)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     updated_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     places = relationship('Place', cascade='all, delete', backref='cities', overlaps="cities")
