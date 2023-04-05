@@ -7,8 +7,6 @@ from sqlalchemy import ForeignKey
 
 from sqlalchemy import DateTime
 
-created_at = Column(DateTime, nullable=False)
-updated_at = Column(DateTime, nullable=False)
 
 class User(BaseModel, Base):
     """indiquer le nom de la table dans laquelle les
@@ -21,3 +19,5 @@ class User(BaseModel, Base):
                                 # Permet également de supprimer les objets enfants
     places = relationship('Place', cascade='all, delete-orphan', backref='user')
     reviews = relationship('Review', cascade='all, delete', backref='user')
+    created_at = Column(DateTime, nullable=False)
+    updated_at = Column(DateTime, nullable=False)

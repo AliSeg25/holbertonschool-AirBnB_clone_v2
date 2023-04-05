@@ -16,8 +16,6 @@ place_amenity = Table('place_amenity', metadata,
 
 from sqlalchemy import DateTime
 
-created_at = Column(DateTime, nullable=False)
-updated_at = Column(DateTime, nullable=False)
 
 class Place(BaseModel, Base):
     """ A place to stay """
@@ -35,5 +33,7 @@ class Place(BaseModel, Base):
     reviews = relationship('Review', cascade='all, delete', backref='place')
     amenities = relationship('Amenity', secondary='place_amenity', overlaps="place_amenities", viewonly=False)
     id = Column(String(36), primary_key=True)
+    created_at = Column(DateTime, nullable=False)
+    updated_at = Column(DateTime, nullable=False)
 
     city = relationship('City', back_populates='places', overlaps="cities")

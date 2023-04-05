@@ -15,3 +15,5 @@ class Amenity(BaseModel, Base):
     à utiliser pour la relation est place_amenity.
     """
     place_amenities = relationship('Place', secondary='place_amenity')
+    created_at = Column(DateTime, nullable=False)
+    updated_at = Column(DateTime, nullable=False)
