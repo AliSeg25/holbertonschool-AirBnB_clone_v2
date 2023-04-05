@@ -3,6 +3,7 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy import DateTime
+from datetime import datetime
 
 
 class Review(BaseModel, Base):

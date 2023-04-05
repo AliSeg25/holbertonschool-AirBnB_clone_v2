@@ -5,6 +5,7 @@ from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
 from sqlalchemy import DateTime
+from datetime import datetime
 
 
 class User(BaseModel, Base):
