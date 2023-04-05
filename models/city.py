@@ -12,6 +12,6 @@ class City(BaseModel, Base):
     name = Column(String(128), nullable=False)
     state_id = Column(String(36), ForeignKey('states.id'), nullable=False)
     id = Column(String(36), primary_key=True)
-    created_at = Column(DateTime, nullable=False)
-    updated_at = Column(DateTime, nullable=False)
+    created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
+    updated_at = Column(DateTime, nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
     places = relationship('Place', cascade='all, delete', backref='cities', overlaps="cities")
