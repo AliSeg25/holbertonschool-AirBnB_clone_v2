@@ -19,5 +19,5 @@ class User(BaseModel, Base):
                                 # Permet également de supprimer les objets enfants
     places = relationship('Place', cascade='all, delete-orphan', backref='user')
     reviews = relationship('Review', cascade='all, delete', backref='user')
-    created_at = Column(DateTime, nullable=False)
-    updated_at = Column(DateTime, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
