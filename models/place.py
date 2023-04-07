@@ -17,7 +17,7 @@ place_amenity = Table('place_amenity', metadata,
 class Place(BaseModel, Base):
     """Place class for HBNB project"""
     __tablename__ = 'places'
-    city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
+    city_id = Column(String(36), ForeignKey('cities.id'), nullable=False)
     user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
     name = Column(String(128), nullable=False)
     description = Column(String(1024), nullable=True)
